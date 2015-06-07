@@ -20,8 +20,31 @@ public class TwoDHaarClient {
 										   {0, 0, 120, 0, 0, 150, 0, 0},
 										   {0, 120, 0, 0, 0, 0, 150, 0},
 										   {120, 0, 0, 0, 0, 0, 0, 150}
+										   
 										  };
 
+	public static double[][] diagonal_1_8x8 = {{100, 0, 0, 0, 0, 0, 0, 0},
+											   {0, 100, 0, 0, 0, 0, 0, 0},
+											   {0, 0, 100, 0, 0, 0, 0, 0},
+											   {0, 0, 0, 100, 0, 0, 0, 0},
+											   {0, 0, 0, 0, 100, 0, 0, 0},
+											   {0, 0, 0, 0, 0, 100, 0, 0},
+											   {0, 0, 0, 0, 0, 0, 100, 0},
+											   {0, 0, 0, 0, 0, 0, 0, 100}
+		   
+		  };
+	
+	public static double[][] diagonal_2_8x8 = {{0, 0, 0, 0, 0, 0, 0, 100},
+											   {0, 0, 0, 0, 0, 0, 100, 0},
+											   {0, 0, 0, 0, 0, 100, 0, 0},
+											   {0, 0, 0, 0, 100, 0, 0, 0},
+											   {0, 0, 0, 100, 0, 0, 0, 0},
+											   {0, 0, 100, 0, 0, 0, 0, 0},
+											   {0, 100, 0, 0, 0, 0, 0, 0},
+											   {100, 0, 0, 0, 0, 0, 0, 0}
+		   
+		  };	
+	
 	public static void main(String[] args) {
 		testOrdered2DFHWT(sample_8x8, 3, 3);
 	}
@@ -32,7 +55,7 @@ public class TwoDHaarClient {
 			TwoDHaar.orderedFastHaarWaveletTransformForNumSweeps(sample, n, num_sweeps);
 			System.out.println("Transformed Sample:");
 			TwoDHaar.displaySample(TwoDHaar.getOrderedFastHaarWaveletTransform());
-			TwoDHaar.orderedInverseFastHaarWaveletTransformForNumSweeps(TwoDHaar.getOrderedFastHaarWaveletTransform(), n, num_sweeps);
+			TwoDHaar.orderedInverseFastHaarWaveletTransformForNumSweeps(sample, n, num_sweeps);
 			System.out.println("\n\nInverted Sample:");
 			TwoDHaar.displaySample(TwoDHaar.getOrderedInverse2DFastHaarWaveletTransform());
 		} catch (Exception e) {

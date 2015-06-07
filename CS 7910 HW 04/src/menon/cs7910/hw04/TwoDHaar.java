@@ -35,7 +35,7 @@ public class TwoDHaar {
 			throw new Exception(testMessage);
 		}
 		
-		ordered2DFastHaarWaveletTransform = Arrays.copyOf(sample, sample.length);;
+		ordered2DFastHaarWaveletTransform = Arrays.copyOf(sample, sample.length);
 		
 		for (int sweepCounter = 0; sweepCounter < numberOfSweepsForward; ++sweepCounter) {
 			
@@ -47,7 +47,7 @@ public class TwoDHaar {
 			//Do the transforms for each cell of 4 values
 			for (int cellCounter = 0; cellCounter < numberOfCells; ++cellCounter) {
 			
-				double[] currentTransform = do2DTransform(sampleSizeExponent, sweepCounter, cellCounter, sample);
+				double[] currentTransform = do2DTransform(sampleSizeExponent, sweepCounter, cellCounter);
 				int topLeftRow = ((cellCounter * 2) / individualTransforms.length) * 2;
 				int topLeftColumn = (cellCounter * 2) % individualTransforms.length;
 				
@@ -84,7 +84,7 @@ public class TwoDHaar {
 	 * Do the 2D FHWT for the cell consisting of 4 elements
 	 * @param cellCounter
 	 */
-	private static double[] do2DTransform(int sampleSizeExponent, int sweepCounter, int cellCounter, double[][] sample) {
+	private static double[] do2DTransform(int sampleSizeExponent, int sweepCounter, int cellCounter) {
 		
 		int numberOfCellsInARow = Double.valueOf(Math.pow(2, sampleSizeExponent - (sweepCounter + 1))).intValue();
 		int topLeftElementRow = (cellCounter / numberOfCellsInARow) * 2;
